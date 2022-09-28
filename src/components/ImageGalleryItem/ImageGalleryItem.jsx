@@ -1,4 +1,4 @@
-import propTypes from 'prop-types';
+import PropTypes from 'prop-types';
 import { Item, Image } from './ImageGalleryItem.styled';
 
 const ImageGalleryItem = ({ webImage, largeImage, tags, onClick }) => {
@@ -10,10 +10,10 @@ const ImageGalleryItem = ({ webImage, largeImage, tags, onClick }) => {
 };
 
 ImageGalleryItem.propTypes = {
-  webImage: propTypes.string.isRequired,
-  largeImage: propTypes.string.isRequired,
-  tags: propTypes.string.isRequired,
-  onClick: propTypes.func.isRequired,
+  webImage: PropTypes.string.isRequired,
+  largeImage: PropTypes.string.isRequired,
+  tags: PropTypes.string.isRequired,
+  onClick: PropTypes.func.isRequired,
 };
 
 export default ImageGalleryItem;

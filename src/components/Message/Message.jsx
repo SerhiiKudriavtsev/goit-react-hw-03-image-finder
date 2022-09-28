@@ -1,4 +1,4 @@
-import propTypes from 'prop-types';
+import PropTypes from 'prop-types';
 import { Container, Text } from './Message.styled';
 
 const Message = ({ text }) => {
@@ -10,7 +10,7 @@ const Message = ({ text }) => {
 };
 
 Message.propTypes = {
-  text: propTypes.string.isRequired,
+  text: PropTypes.string.isRequired,
 };
 
 export default Message;

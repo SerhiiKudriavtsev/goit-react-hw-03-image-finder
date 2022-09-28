@@ -1,4 +1,4 @@
-import propTypes from 'prop-types';
+import PropTypes from 'prop-types';
 import { Component } from "react";
 import {
   Header,
@@ -27,7 +27,7 @@ export default class Searchbar extends Component {
 
     this.props.onSearchWord(this.state.wordSearch);
     this.props.onPrePage(this.state.prePage);
-    this.setState({ wordSearch: '' });
+    // this.setState({ wordSearch: '' });
   };
 
   handleWordChange = event => {
@@ -35,9 +35,10 @@ export default class Searchbar extends Component {
   };
 
   handleChange = event => {
-    if(this.state.wordSearch !== ''){
+    // if(this.state.wordSearch !== ''){
     this.setState({ prePage: event.currentTarget.value });
-  }};
+    // }
+  };
 
 
   render() {
@@ -78,5 +79,7 @@ return (
 }
   
 Searchbar.propTypes = {
-  onSubmit: propTypes.func.isRequired,
+  onSubmit: PropTypes.func,
+  onSearchWord: PropTypes.func.isRequired,
+  onPrePage: PropTypes.func.isRequired,
 };

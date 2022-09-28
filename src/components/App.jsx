@@ -35,12 +35,12 @@ export default class App extends Component {
   
   // }
   
-  handleFormSubmit = wordSearch => {
+  handleFormSubmit = (wordSearch) => {
     console.log("wordSearch", wordSearch);
     this.setState({
       wordSearch: wordSearch,
       currentPage: 1,
-      imagesArr: [],
+      // imagesArr: [],
     });
   }
 
@@ -52,14 +52,38 @@ export default class App extends Component {
   
   componentDidUpdate(prevProps, prevState) {
     console.log("componentDidUpdate");
-    const { wordSearch, currentPage } = this.state;
+    const { wordSearch, currentPage, prePages } = this.state;
 
-    if (this.props.wordSearch === '') {
+    if (wordSearch === '') {
       return;
     }
 
+    if (prevState.wordSearch === wordSearch &&
+      prevState.prePages === prePages &&
+      prevState.currentPage === currentPage) {
+      return;
+    }
+    
     if (prevState.wordSearch !== wordSearch ||
-      prevState.currentPage !== currentPage
+      prevState.currentPage !== currentPage ||
+      prevState.prePages !== prePages
+      ) {
+      if (currentPage === 1) {
+        this.setState({
+          imagesArr: [],
+          status: Status.PENDING,
+        });
+      }
+      this.fetchImages();
+
+      if (currentPage > 1) {
+        scroll.scrollToBottom();
+      }
+      return;
+    }
+
+    if (prevState.wordSearch === wordSearch &&
+      prevState.prePages !== prePages
       ) {
       if (currentPage === 1) {
         this.setState({

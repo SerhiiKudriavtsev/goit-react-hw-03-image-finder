@@ -1,4 +1,4 @@
-import propTypes from 'prop-types';
+import PropTypes from 'prop-types';
 import ImageGalleryItem from '../ImageGalleryItem/ImageGalleryItem';
 import { Gallery } from './ImageGallery.styled';
 
@@ -22,12 +22,12 @@ const ImageGallery = ({imagesArr, onClickWord}) => {
 }
 
 ImageGallery.propTypes = {
-  imagesArr: propTypes.arrayOf(
-    propTypes.shape({
-      id: propTypes.number.isRequired,
+  imagesArr: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.number.isRequired,
     })
   ),
-  onClickWord: propTypes.func.isRequired,
+  onClickWord: PropTypes.func.isRequired,
 };
 
 export default ImageGallery;
