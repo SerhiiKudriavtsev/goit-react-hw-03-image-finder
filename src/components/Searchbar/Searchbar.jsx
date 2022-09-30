@@ -30,14 +30,14 @@ export default class Searchbar extends Component {
     // this.setState({ wordSearch: '' });
   };
 
-  handleWordChange = event => {
-    this.setState({wordSearch: event.currentTarget.value.toLowerCase(),});    
-  };
+  // handleWordChange = event => {
+  //   this.setState({wordSearch: event.currentTarget.value.toLowerCase(),});    
+  // };
 
   handleChange = event => {
-    // if(this.state.wordSearch !== ''){
-    this.setState({ prePage: event.currentTarget.value });
-    // }
+    // this.setState({ prePage: event.currentTarget.value });
+    const { name, value } = event.currentTarget;
+    this.setState({ [name]: value });
   };
 
 
@@ -59,10 +59,10 @@ return (
           autoComplete="off"
           autoFocus
           placeholder="Search images and photos"
-          onChange={this.handleWordChange}
+          onChange={this.handleChange}
         />
         <Label>
-            <Select value={this.state.prePage} name="prP" onChange={this.handleChange}>
+            <Select value={this.state.prePage} name="prePage" onChange={this.handleChange}>
               <option value="20">20</option>
               <option value="40">40</option>
               <option value="60">60</option>
