@@ -36,7 +36,7 @@ export default class App extends Component {
   // }
   
   handleFormSubmit = (wordSearch) => {
-    console.log("wordSearch", wordSearch);
+    if(this.state.wordSearch !== wordSearch)
     this.setState({
       wordSearch: wordSearch,
       currentPage: 1,
@@ -59,7 +59,6 @@ export default class App extends Component {
     }
 
     if (prevState.wordSearch === wordSearch &&
-      prevState.prePages === prePages &&
       prevState.currentPage === currentPage) {
       return;
     }

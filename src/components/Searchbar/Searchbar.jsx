@@ -79,7 +79,6 @@ return (
 }
   
 Searchbar.propTypes = {
-  onSubmit: PropTypes.func,
   onSearchWord: PropTypes.func.isRequired,
   onPrePage: PropTypes.func.isRequired,
 };
