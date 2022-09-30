@@ -58,9 +58,11 @@ export default class App extends Component {
       return;
     }
 
-    if (prevState.wordSearch === wordSearch &&
-      prevState.currentPage === currentPage) {
-      return;
+    if (prevProps.wordSearch === wordSearch &&
+      prevState.currentPage === currentPage &&
+      prevState.prePages === prePages) {
+      
+      return(alert("You are already watching " + wordSearch));
     }
     
     if (prevState.wordSearch !== wordSearch ||

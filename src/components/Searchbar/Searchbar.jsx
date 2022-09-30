@@ -21,15 +21,16 @@ export default class Searchbar extends Component {
     event.preventDefault();
 
     if(this.state.wordSearch.trim() === '') {
-      alert("Введіть слово для пошуку")
+      alert("Enter a word to search for")
       return;
-    }
+    };
 
+    
     this.props.onSearchWord(this.state.wordSearch);
     this.props.onPrePage(this.state.prePage);
     // this.setState({ wordSearch: '' });
   };
-
+  
   // handleWordChange = event => {
   //   this.setState({wordSearch: event.currentTarget.value.toLowerCase(),});    
   // };
